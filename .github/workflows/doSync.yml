@@ -9,7 +9,7 @@ on:
 jobs:
   sendInvoice:
     env:
-      SETTINGS: ${{variables.SETTINGS}}
+      SETTINGS: ${{vars.SETTINGS}}
       GOOGLE_CLIENT_EMAIL: ${{secrets.GOOGLE_CLIENT_EMAIL}}
       GOOGLE_CLIENT_KEY: ${{secrets.GOOGLE_CLIENT_KEY}}
       LDS_USERNAME: ${{secrets.LDS_USERNAME}}
