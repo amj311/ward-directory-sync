@@ -1,0 +1,30 @@
+name: Send Latest Invoice
+on:
+  schedule:
+    # 6 am MST every sunday
+    # - cron:  '0 12 * * SUN'
+    - cron:  '* * * * *'
+  
+jobs:
+  sendInvoice:
+    env:
+      GOOGLE_CLIENT_EMAIL: ${{secrets.GOOGLE_CLIENT_EMAIL}}
+      GOOGLE_CLIENT_KEY: ${{secrets.GOOGLE_CLIENT_KEY}}
+      LDS_USERNAME: ${{secrets.LDS_USERNAME}}
+      LDS_PASSWORD: ${{secrets.LDS_PASSWORD}}
+
+    name: Send Latest Invoice
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 18
+          
+      - name: Install Dependencies
+        run: yarn --prod
+
+      - name: Send It!
+        run: yarn sync

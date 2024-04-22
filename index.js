@@ -28,6 +28,7 @@ const SpreadsheetId = '1iOMYE_g6BcrshbD7h49ba7LEQCLgm0jC0TrQAZWkgkg';
 	}
 
 	// start puppeteer and pull data
+	console.log("Pulling data...");
 	let rows;
 	const browser = await puppeteer.launch();
 	try {
