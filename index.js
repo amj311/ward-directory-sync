@@ -25,6 +25,12 @@ const SpreadsheetId = '1iOMYE_g6BcrshbD7h49ba7LEQCLgm0jC0TrQAZWkgkg';
 			valueInputOption: 'USER_ENTERED',
 			resource: { values: rows },
 		})
+		await sheets.spreadsheets.values.update({
+			spreadsheetId: SpreadsheetId,
+			range: 'B1',
+			valueInputOption: 'USER_ENTERED',
+			resource: { values: [['Auto-sync: ' + new Date().toLocaleString()]] },
+		})
 	}
 
 	// start puppeteer and pull data
@@ -78,10 +84,9 @@ const SpreadsheetId = '1iOMYE_g6BcrshbD7h49ba7LEQCLgm0jC0TrQAZWkgkg';
 		});
 	}
 	catch (e) {
+		console.log("Error during puppeteer execution:");
 		console.log(e)
-	}
-	finally {
-		await browser.close();
+		return;
 	}
 
 	console.log(`Found ${rows.length} rows.`);

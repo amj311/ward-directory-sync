@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   schedule:
     # 12 am MST (6am UTC) every Friday
-    # - cron:  '0 6 * * FRI'
+    - cron:  '0 6 * * FRI'
   
 jobs:
   sendInvoice:
