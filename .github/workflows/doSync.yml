@@ -1,5 +1,6 @@
 name: Sync Households
 on:
+  workflow_dispatch:
   schedule:
     # 6 am MST every sunday
     # - cron:  '0 12 * * SUN'
