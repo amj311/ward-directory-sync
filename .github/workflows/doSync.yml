@@ -2,8 +2,9 @@ name: Sync Households
 on:
   workflow_dispatch:
   schedule:
-    # 12 am MST every sunday
-    - cron:  '0 6 * * MON'
+    # 6 am MST every sunday
+    # - cron:  '0 12 * * SUN'
+    - cron:  '*/2 * * * *'
   
 jobs:
   sendInvoice:
