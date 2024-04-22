@@ -1,4 +1,4 @@
-name: Send Latest Invoice
+name: Sync Households
 on:
   schedule:
     # 6 am MST every sunday
