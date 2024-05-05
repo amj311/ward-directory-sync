@@ -27,7 +27,7 @@ const SpreadsheetId = '1iOMYE_g6BcrshbD7h49ba7LEQCLgm0jC0TrQAZWkgkg';
 		})
 		await sheets.spreadsheets.values.update({
 			spreadsheetId: SpreadsheetId,
-			range: 'B1',
+			range: 'Import!B1',
 			valueInputOption: 'USER_ENTERED',
 			resource: { values: [['Auto-sync: ' + new Date().toLocaleString()]] },
 		})
@@ -86,8 +86,11 @@ const SpreadsheetId = '1iOMYE_g6BcrshbD7h49ba7LEQCLgm0jC0TrQAZWkgkg';
 	catch (e) {
 		console.log("Error during puppeteer execution:");
 		console.log(e)
+		await browser.close();
 		return;
 	}
+
+	await browser.close();
 
 	console.log(`Found ${rows.length} rows.`);
 	console.log('1:', rows[0]);
