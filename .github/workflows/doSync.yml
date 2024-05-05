@@ -14,7 +14,7 @@ jobs:
       LDS_USERNAME: ${{secrets.LDS_USERNAME}}
       LDS_PASSWORD: ${{secrets.LDS_PASSWORD}}
 
-    name: Send Latest Invoice
+    name: Sync Households
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
