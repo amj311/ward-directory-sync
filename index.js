@@ -90,7 +90,7 @@ const SpreadsheetId = '1iOMYE_g6BcrshbD7h49ba7LEQCLgm0jC0TrQAZWkgkg';
 		console.log("Error during puppeteer execution:");
 		console.log(e)
 		await browser.close();
-		return;
+		throw e;
 	}
 
 	await browser.close();
