@@ -92,7 +92,7 @@ const SpreadsheetId = '1iOMYE_g6BcrshbD7h49ba7LEQCLgm0jC0TrQAZWkgkg';
 		console.log(e)
 		await page?.screenshot({ path: 'error.png' });
 		await browser.close();
-		throw e;
+		process.exit(1);
 	}
 
 	await browser.close();
