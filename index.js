@@ -40,8 +40,9 @@ const SpreadsheetId = '1iOMYE_g6BcrshbD7h49ba7LEQCLgm0jC0TrQAZWkgkg';
 		headless: true,
 		args: ['--no-sandbox', '--disable-setuid-sandbox'],
 	});
+	let page;
 	try {
-		const page = await browser.newPage();
+		page = await browser.newPage();
 		await page.goto('https://lcr.churchofjesuschrist.org/records/member-list?lang=eng&households');
 
 		const username = await page.waitForSelector('input[name="identifier"]');
@@ -89,6 +90,7 @@ const SpreadsheetId = '1iOMYE_g6BcrshbD7h49ba7LEQCLgm0jC0TrQAZWkgkg';
 	catch (e) {
 		console.log("Error during puppeteer execution:");
 		console.log(e)
+		await page?.screenshot({ path: 'error.png' });
 		await browser.close();
 		throw e;
 	}
