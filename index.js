@@ -9,6 +9,7 @@ const ImportRange = 'Import!A3';
 const SpreadsheetId = '1iOMYE_g6BcrshbD7h49ba7LEQCLgm0jC0TrQAZWkgkg';
 
 (async () => {
+	console.log(process.env.GOOGLE_CLIENT_EMAIL, process.env.GOOGLE_CLIENT_KEY);
 	const googleClient = new google.auth.JWT(
 		process.env.GOOGLE_CLIENT_EMAIL,
 		undefined,
