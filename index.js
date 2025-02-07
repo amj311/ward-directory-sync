@@ -36,7 +36,10 @@ const SpreadsheetId = '1iOMYE_g6BcrshbD7h49ba7LEQCLgm0jC0TrQAZWkgkg';
 	// start puppeteer and pull data
 	console.log("Pulling data...");
 	let rows;
-	const browser = await puppeteer.launch();
+	const browser = await puppeteer.launch({
+		headless: true,
+		args: ['--no-sandbox', '--disable-setuid-sandbox'],
+	});
 	try {
 		const page = await browser.newPage();
 		await page.goto('https://lcr.churchofjesuschrist.org/records/member-list?lang=eng&households');
